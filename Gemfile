@@ -8,6 +8,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'annotate', ">=2.6.0"
 gem 'rake'
+gem 'devise'
 # brew install git-flow
 
 # Gems used only for assets and not required
@@ -57,5 +58,4 @@ group :development, :test do
 
   gem 'quiet_assets'
   gem 'sextant'
-
 end

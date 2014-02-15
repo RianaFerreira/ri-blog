@@ -4,6 +4,9 @@ Ever wondered what it would be like to wipe the slate clean and start a journey 
 
 From Business Analyst to Junior Developer, I'm loving every minute!
 
+## Heroku Deployment
+config.action_mailer.default_url_options = { :host => 'ri-blog.heroku.com.au' }
+
 ## Technologies
 * Ruby
 * Rails
