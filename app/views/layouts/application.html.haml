@@ -19,7 +19,10 @@
             %span
 
           %section.middle.tab-bar-section
-            %h1 Ri-Blog
+            - if admin_signed_in?
+              %h1 Ri-Blog hello RiRi
+            -else
+              %h1 Ri-Blog
 
           %section.right-small
             %a.right-off-canvas-toggle.menu-icon
@@ -28,10 +31,15 @@
         %aside.left-off-canvas-menu
           %ul.off-canvas-menu
             %li
-              %label Administration
-            %li
-              %a
-              = link_to "Sign In", new_admin_session_path
+              %label Blog Admin
+            - if admin_signed_in?
+              %li
+                = link_to "New Post", posts_path
+              %li
+                = link_to "Sign Out", destroy_admin_session_path
+            - else
+              %li
+                = link_to "Sign In", new_admin_session_path
 
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
