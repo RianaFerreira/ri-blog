@@ -15,3 +15,4 @@ From Business Analyst to Junior Developer, I'm loving every minute!
 
 ## References
 Git-Flow http://nvie.com/posts/a-successful-git-branching-model/
+Pretty Page Title http://railscasts.com/episodes/30-pretty-page-title
