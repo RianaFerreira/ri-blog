@@ -3,11 +3,49 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+
     %title
       Ri-Blog #{yield(:title) || "My Journey Into Programming"}
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
+
   %body
-    = yield
+    .off-canvas-wrap
+      .inner-wrap
+        %nav.tab-bar
+          %section.left-small
+            %a.left-off-canvas-toggle.menu-icon
+            %span
+
+          %section.middle.tab-bar-section
+            %h1 Ri-Blog
+
+          %section.right-small
+            %a.right-off-canvas-toggle.menu-icon
+            %span
+
+        %aside.left-off-canvas-menu
+          %ul.off-canvas-menu
+            %li
+              %label Administration
+            %li
+              %a
+              = link_to "Sign In", new_admin_session_path
+
+        %aside.right-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %label Archive
+            %li
+              %a date of post
+
+        %section.main-section
+          = yield
+          %p{class: "notice"}
+            = notice
+          %p{class: "alert"}
+            = alert
+
+      %a.exit-off-canvas
     = javascript_include_tag "application"
