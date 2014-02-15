@@ -45,6 +45,7 @@ group :development, :test do
   # database_cleaner for cucumber is not required, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'capybara'
   # faker installed to seed database with testing data
