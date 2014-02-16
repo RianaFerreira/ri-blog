@@ -10,6 +10,8 @@ gem 'pg'
 gem 'annotate', ">=2.6.0"
 gem 'rake'
 gem 'devise'
+# skip heroku deployment plugin injection
+gem 'rails_12factor'
 # brew install git-flow
 
 # Gems used only for assets and not required
