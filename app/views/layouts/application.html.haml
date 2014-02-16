@@ -31,8 +31,9 @@
         %aside.left-off-canvas-menu
           %ul.off-canvas-menu
             %li
-              %label Blog Admin
+              = link_to "Home", root_path
             - if admin_signed_in?
+              %label Blog Admin
               %li
                 = link_to "New Post", posts_path
               %li
@@ -44,9 +45,7 @@
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
             %li
-              %label Archive
-            %li
-              %a date of post
+              %label Post Archive
 
         %section.main-section
           = yield

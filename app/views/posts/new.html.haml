@@ -1,0 +1,18 @@
+= title 'Adding Post'
+
+%h1 New Ri-Blog Post
+
+%section
+  = form_for :post, url: posts_path do |f|
+    %p
+      = f.label :title
+      = f.text_field :title
+    %p
+      = f.label :detail
+      = f.text_area :detail
+    %p
+      = f.label :image
+      = f.file_field :image
+    %p
+      = f.submit
+  = link_to 'Abandon Post', posts_path
