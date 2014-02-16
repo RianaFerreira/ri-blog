@@ -16,7 +16,10 @@ class PostsController < ApplicationController
   def create
     # render text: params[:post].inspect
     @post = Post.new(params[:post])
-    @post.save
-    redirect_to @post
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 end
