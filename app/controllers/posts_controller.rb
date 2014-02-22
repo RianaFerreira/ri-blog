@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def new
     # display form to capture details of new post
     # on submit the form will POST to create action
+    @post = Post.new
   end
 
   def create
@@ -22,4 +23,18 @@ class PostsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(params[:post])
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
 end

@@ -16,6 +16,7 @@
   %strong Images
   = @post.image
 
--if admin_signed_in?
-  %p
-  = link_to 'View All Blog Posts', posts_path
+%p
+  = link_to 'View All Blog Posts', posts_path, class: 'button'
+  - if admin_signed_in?
+    = link_to 'Edit Blog Post', edit_post_path(@post.id), class: 'button'

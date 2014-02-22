@@ -13,6 +13,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :detail, :image, :title
 
-  validates :title, presence: true,
+  validates :title, :detail, presence: true,
                     length: { minimum: 5 }
 end
