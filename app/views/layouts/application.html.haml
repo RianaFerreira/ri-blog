@@ -16,26 +16,28 @@
         %nav.tab-bar
           %section.left-small
             %a.left-off-canvas-toggle.menu-icon
-            %span
+              %span
 
           %section.middle.tab-bar-section
             - if admin_signed_in?
-              %h1 Ri-Blog hello RiRi
+              %h1.title Ri-Blog hello RiRi
             -else
-              %h1 Ri-Blog
+              %h1.title Ri-Blog
 
           %section.right-small
             %a.right-off-canvas-toggle.menu-icon
-            %span
+              %span
 
         %aside.left-off-canvas-menu
-          %ul.off-canvas-menu
+          %ul.off-canvas-list
             %li
               = link_to "Home", root_path
             - if admin_signed_in?
               %label Blog Admin
               %li
-                = link_to "New Post", posts_path
+                = link_to "All Posts", posts_path
+              %li
+                = link_to "New Post", new_post_path
               %li
                 = link_to "Sign Out", destroy_admin_session_path
             - else
@@ -54,5 +56,5 @@
           %p{class: "alert"}
             = alert
 
-      %a.exit-off-canvas
+        %a.exit-off-canvas
     = javascript_include_tag "application"
