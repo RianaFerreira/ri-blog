@@ -1,0 +1,13 @@
+= title 'All Posts'
+
+%h1 All Ri-Blog Posts
+%ul
+  - @posts.each do |post|
+    %li
+      %span
+        = post.created_at
+      %span
+        = link_to post.title, post_path(post)
+      %span
+        = post.detail.slice(0, 30)+"..."
+%p that's it folks

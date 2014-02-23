@@ -16,29 +16,38 @@
         %nav.tab-bar
           %section.left-small
             %a.left-off-canvas-toggle.menu-icon
-            %span
+              %span
 
           %section.middle.tab-bar-section
-            %h1 Ri-Blog
+            - if admin_signed_in?
+              %h1.title Ri-Blog hello RiRi
+            -else
+              %h1.title Ri-Blog
 
           %section.right-small
             %a.right-off-canvas-toggle.menu-icon
-            %span
+              %span
 
         %aside.left-off-canvas-menu
-          %ul.off-canvas-menu
+          %ul.off-canvas-list
             %li
-              %label Administration
-            %li
-              %a
-              = link_to "Sign In", new_admin_session_path
+              = link_to "Home", root_path
+            - if admin_signed_in?
+              %label Blog Admin
+              %li
+                = link_to "All Posts", posts_path
+              %li
+                = link_to "New Post", new_post_path
+              %li
+                = link_to "Sign Out", destroy_admin_session_path
+            - else
+              %li
+                = link_to "Sign In", new_admin_session_path
 
         %aside.right-off-canvas-menu
           %ul.off-canvas-list
             %li
-              %label Archive
-            %li
-              %a date of post
+              %label Post Archive
 
         %section.main-section
           = yield
@@ -47,5 +56,5 @@
           %p{class: "alert"}
             = alert
 
-      %a.exit-off-canvas
+        %a.exit-off-canvas
     = javascript_include_tag "application"
