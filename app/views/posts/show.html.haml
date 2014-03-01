@@ -1,22 +1,24 @@
 = title 'Added Post'
 
-%h1 Latest Ri-Blog Post
-%p
-  %strong Date
-  = @post.created_at
-%p
-  %strong Title
-  = @post.title
+.row
+  .small-11.small-centered.columns
+    %h1 Latest Ri-Blog Post
+    %p
+      %strong Date
+      = @post.created_at
+    %p
+      %strong Title
+      = @post.title
 
-%p
-  %strong Detail
-  = @post.detail
+    %p
+      %strong Detail
+      = @post.detail
 
-%p
-  %strong Images
-  = @post.image
+    %p
+      %strong Images
+      = @post.image
 
-%p
-  = link_to 'View All Blog Posts', posts_path, class: 'button'
-  - if admin_signed_in?
-    = link_to 'Edit Blog Post', edit_post_path(@post.id), class: 'button'
+    %p
+      = link_to 'View All Blog Posts', posts_path, class: 'button'
+      - if admin_signed_in?
+        = link_to 'Edit Blog Post', edit_post_path(@post.id), class: 'button'
