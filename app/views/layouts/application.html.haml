@@ -11,50 +11,53 @@
     = csrf_meta_tags
 
   %body
-    .off-canvas-wrap
-      .inner-wrap
-        %nav.tab-bar
-          %section.left-small
-            %a.left-off-canvas-toggle.menu-icon
-              %span
+    .row
+      .small-12.columns
+        .off-canvas-wrap
+          .inner-wrap
+            %nav.tab-bar
+              %section.left-small
+                %a.left-off-canvas-toggle.menu-icon
+                  %span
 
-          %section.middle.tab-bar-section
-            - if admin_signed_in?
-              %h1.title Ri-Blog hello RiRi
-            -else
-              %h1.title Ri-Blog
+              %section.middle.tab-bar-section
+                - if admin_signed_in?
+                  %h1.title Ri-Blog hello RiRi
+                -else
+                  %h1.title Ri-Blog
 
-          %section.right-small
-            %a.right-off-canvas-toggle.menu-icon
-              %span
+              %section.right-small
+                %a.right-off-canvas-toggle.menu-icon
+                  %span
 
-        %aside.left-off-canvas-menu
-          %ul.off-canvas-list
-            %li
-              = link_to "Home", root_path
-            - if admin_signed_in?
-              %label Blog Admin
-              %li
-                = link_to "All Posts", posts_path
-              %li
-                = link_to "New Post", new_post_path
-              %li
-                = link_to "Sign Out", destroy_admin_session_path
-            - else
-              %li
-                = link_to "Sign In", new_admin_session_path
+            %aside.left-off-canvas-menu
+              %ul.off-canvas-list
+                %li
+                  = link_to "Home", root_path
+                - if admin_signed_in?
+                  %label Blog Admin
+                  %li
+                    = link_to "All Posts", posts_path
+                  %li
+                    = link_to "New Post", new_post_path
+                  %li
+                    = link_to "Sign Out", destroy_admin_session_path
+                - else
+                  %li
+                    = link_to "Sign In", new_admin_session_path
 
-        %aside.right-off-canvas-menu
-          %ul.off-canvas-list
-            %li
-              %label Post Archive
+            %aside.right-off-canvas-menu
+              %ul.off-canvas-list
+                %li
+                  %label Post Archive
 
-        %section.main-section
-          = yield
-          %p{class: "notice"}
-            = notice
-          %p{class: "alert"}
-            = alert
+            %section.main-section
+              = yield
+              %p{class: "notice"}
+                = notice
+              %p{class: "alert"}
+                = alert
 
-        %a.exit-off-canvas
+            %a.exit-off-canvas
+
     = javascript_include_tag "application"
