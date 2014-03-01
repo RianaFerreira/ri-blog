@@ -4,7 +4,7 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'nokogiri'
 gem 'pg'
 gem 'annotate', ">=2.6.0"
 gem 'rake'
@@ -42,6 +42,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 group :development, :test do
+  gem "minitest", "4.7.5"
   gem 'cucumber-rails', :require => false
   # database_cleaner for cucumber is not required, but highly recommended
   gem 'database_cleaner'
@@ -50,7 +51,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   # faker installed to seed database with testing data
-
+  gem 'faker'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
