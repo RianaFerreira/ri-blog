@@ -13,5 +13,23 @@
 require 'spec_helper'
 
 describe Post do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'is invalid without a title' do
+    should_not be_valid
+  end
+
+  it 'title minimum length is 5 characters' do
+    post = Post.new(title: 'Day 2')
+    post.title.length.should be >= 5
+  end
+
+  it 'is invalid without detail' do
+    post = Post.new(title: 'Day 3')
+    post.should_not be_valid
+  end
+
+  it 'detail minimum length is 20 characters' do
+    post = Post.new(title: 'Day 1', detail: 'test the post details being entered')
+    post.detail.length.should be > 20
+  end
+
 end

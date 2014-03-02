@@ -36,9 +36,6 @@ GEM
     arel (3.0.3)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    better_errors (1.0.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
@@ -107,10 +104,12 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
-    minitest (4.7.5)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
     multi_test (0.0.3)
     nokogiri (1.6.1)
@@ -203,7 +202,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   annotate (>= 2.6.0)
-  better_errors
   binding_of_caller
   capybara
   coffee-rails (~> 3.2.1)
@@ -215,7 +213,7 @@ DEPENDENCIES
   foundation-rails
   haml-rails
   jquery-rails
-  minitest (= 4.7.5)
+  mocha
   nokogiri
   pg
   pry-rails
