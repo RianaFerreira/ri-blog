@@ -21,5 +21,15 @@
       = link_to 'View All Blog Posts', posts_path, class: 'button'
       - if admin_signed_in?
         = link_to 'Edit Blog Post', edit_post_path(@post.id), class: 'button'
-    %h2
-      = render 'comments/comment_form'
+    %h2 Post Comments
+    - @post.comments.each do |comment|
+      %table
+        %tbody
+          %tr
+            %td{:width => 200}= comment.created_at
+            %td{:width => 100}= comment.commenter
+            %td{:width => 600}= comment.body
+            - if admin_signed_in?
+              %td= link_to 'Delete', [comment.post, comment], class: 'button', :method => :delete
+
+    = render 'comments/comment_form'
