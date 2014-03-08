@@ -6,9 +6,4 @@ describe PostsController do
     it { should render_template('index') }
   end
 
-  describe 'GET #show' do
-    before { get :show }
-    xit { should render_template('show') }
-  end
-
 end
