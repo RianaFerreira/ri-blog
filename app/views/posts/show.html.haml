@@ -20,7 +20,9 @@
     %p
       = link_to 'View All Blog Posts', posts_path, class: 'button'
       - if admin_signed_in?
-        = link_to 'Edit Blog Post', edit_post_path(@post.id), class: 'button'
+        = link_to 'Edit Blog Post', edit_post_path(@post), class: 'button'
+        = link_to 'Remove Blog Post', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
+
     %h2 Post Comments
     - @post.comments.each do |comment|
       %table
