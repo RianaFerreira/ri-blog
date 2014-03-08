@@ -1,0 +1,18 @@
+%section
+  = form_for ([@post, @post.comments.build]) do |f|
+    - if @post.errors.any?
+      #error_explanation
+        %h2
+        = pluralize(@post.errors.count, "error")
+        prohibited this comment form being saved:
+        %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+    %p
+      = f.label :commenter
+      = f.text_field :commenter
+    %p
+      = f.label :body
+      = f.text_area :body
+    %p
+      = f.submit class: 'button'
