@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '3.2.14'
 
@@ -9,6 +10,8 @@ gem 'pg'
 gem 'annotate', ">=2.6.0"
 gem 'rake'
 gem 'devise'
+# skip heroku deployment plugin injection
+gem 'rails_12factor'
 # brew install git-flow
 
 gem 'haml-rails'
