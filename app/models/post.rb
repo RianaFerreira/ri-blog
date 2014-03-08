@@ -11,7 +11,7 @@
 #
 
 class Post < ActiveRecord::Base
-  attr_accessible :detail, :image, :title
+  attr_accessible :title, :detail, :image
 
   validates :title, presence: true, length: { minimum: 5 }
   validates :detail, presence: true, length: { minimum: 20 }
