@@ -19,9 +19,9 @@
 
     %p
       - if admin_signed_in?
-        = link_to 'Edit Post', edit_post_path(@post), class: 'button'
-        = link_to 'Remove Post', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
-      = link_to 'View All Blog Posts', posts_path, class: 'button'
+        = link_to 'Edit', edit_post_path(@post), class: 'button'
+        = link_to 'Remove', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
+      = link_to 'View All', posts_path, class: 'button'
 
     %h2 Post Comments
     - @post.comments.each do |comment|

@@ -9,7 +9,7 @@
     %h2 Recent posts
     - @posts.each do |post|
       %p
-        %span= post.title
+        %h4= post.title
         %span= post.created_at
       %p= post.detail
       -if post.image.present?
