@@ -1,4 +1,4 @@
-= title 'Added Post'
+= title 'Post Detail'
 
 .row
   .small-11.small-centered.columns
@@ -18,10 +18,10 @@
       = @post.image
 
     %p
-      = link_to 'View All Blog Posts', posts_path, class: 'button'
       - if admin_signed_in?
-        = link_to 'Edit Blog Post', edit_post_path(@post), class: 'button'
-        = link_to 'Remove Blog Post', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
+        = link_to 'Edit Post', edit_post_path(@post), class: 'button'
+        = link_to 'Remove Post', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
+      = link_to 'View All Blog Posts', posts_path, class: 'button'
 
     %h2 Post Comments
     - @post.comments.each do |comment|
