@@ -1,13 +1,16 @@
 = title 'Posts'
 
-%h1 My journey into web programming
-%p If you have ever wondered what it would be like to wipe the slate clean and start a journey into a new career path; I'll be blogging about where I came from, making the most of my life, the work I do and how it's all working out.
-%p From Business Analyst to Junior Developer, I'm loving every minute!
+.row
+  .small-11.small-centered.columns
+    %h1 My journey into web programming
+    %p If you have ever wondered what it would be like to wipe the slate clean and start a journey into a new career path; I'll be blogging about where I came from, making the most of my life, the work I do and how it's all working out.
+    %p From Business Analyst to Junior Developer, I'm loving every minute!
 
-- @posts.each do |post|
-  %p
-    %span= post.title
-    %span= post.created_at
-  %p= post.detail
-  -if post.image.present?
-    %img{src: post.image, alt: "blog post image"}
+    %h2 Recent posts
+    - @posts.each do |post|
+      %p
+        %h4= post.title
+        %span= post.created_at
+      %p= post.detail
+      -if post.image.present?
+        %img{src: post.image, alt: "blog post image"}

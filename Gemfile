@@ -4,24 +4,25 @@ gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'nokogiri'
 gem 'pg'
 gem 'annotate', ">=2.6.0"
 gem 'rake'
 gem 'devise'
 # brew install git-flow
 
+gem 'haml-rails'
+gem 'coffee-rails', '~> 3.2.1'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'foundation-rails'
-  gem 'haml-rails'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
   gem "active_model_serializers"
   gem 'uglifier', '>= 1.0.3'
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
 end
 
 gem 'jquery-rails'
@@ -42,16 +43,18 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 group :development, :test do
+  #gem "minitest", "4.7.5"
   gem 'cucumber-rails', :require => false
   # database_cleaner for cucumber is not required, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'mocha'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'capybara'
   # faker installed to seed database with testing data
-
-  gem 'better_errors'
+  gem 'faker'
+  # gem 'better_errors' # triggers rspec segmentation fault error
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'pry-stack_explorer'

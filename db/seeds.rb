@@ -5,8 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require 'faker'
 
-50.times do
-  Blog.create(:title => "Day #{title_index+=1}")
+require 'faker'
+puts "~ Deleting all posts and associated comments"
+Post.delete_all
+
+puts "~ Creating and populating 20 posts and comments"
+20.times do |i|
+  @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph )
+  @post.comments.create!(commenter: Faker::Name.name, body: Faker::Lorem.paragraph )
 end
+
+puts "~ Database seeded successfully"

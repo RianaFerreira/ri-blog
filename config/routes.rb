@@ -1,6 +1,10 @@
 Blog::Application.routes.draw do
   devise_for :admins
-  resources :posts
+
+  resources :posts do
+    resources :comments
+  end
+
   root :to => 'pages#index'
 
   # The priority is based upon order of creation:

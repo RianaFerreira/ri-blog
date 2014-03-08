@@ -1,23 +1,37 @@
 = title 'Post Detail'
 
-%h1 Latest Ri-Blog Post
-%p
-  %strong Date
-  = @post.created_at
-%p
-  %strong Title
-  = @post.title
+.row
+  .small-11.small-centered.columns
+    %h1 Latest Ri-Blog Post
+    %p
+      %strong Date
+      = @post.created_at
+    %p
+      %strong Title
+      = @post.title
+    %p
+      %strong Detail
+      = @post.detail
 
-%p
-  %strong Detail
-  = @post.detail
+    %p
+      %strong Images
+      = @post.image
 
-%p
-  %strong Images
-  = @post.image
+    %p
+      - if admin_signed_in?
+        = link_to 'Edit', edit_post_path(@post), class: 'button'
+        = link_to 'Remove', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
+      = link_to 'View All', posts_path, class: 'button'
 
-%p
-  - if admin_signed_in?
-    = link_to 'Edit Post', edit_post_path(@post), class: 'button'
-    = link_to 'Remove Post', post_path(@post), class: 'button', method: :delete, data: { confirm: 'For realzies?'}
-  = link_to 'View All Blog Posts', posts_path, class: 'button'
+    %h2 Post Comments
+    - @post.comments.each do |comment|
+      %table
+        %tbody
+          %tr
+            %td{:width => 200}= comment.created_at
+            %td{:width => 100}= comment.commenter
+            %td{:width => 600}= comment.body
+            - if admin_signed_in?
+              %td= link_to 'Delete', [comment.post, comment], class: 'button', :method => :delete
+
+    = render 'comments/comment_form'
