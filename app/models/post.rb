@@ -13,8 +13,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :detail, :image, :title
 
-  validates :title, presence: true,
-                    length: { minimum: 5 }
-  validates :detail, presence: true,
-                    length: { minimum: 20 }
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :detail, presence: true, length: { minimum: 20 }
+
+  has_many :comments, dependent: :destroy
 end
