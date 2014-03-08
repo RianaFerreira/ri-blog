@@ -37,13 +37,13 @@
                 - if admin_signed_in?
                   %label Blog Admin
                   %li
-                    = link_to "All Posts", posts_path
-                  %li
                     = link_to "New Post", new_post_path
                   %li
                     = link_to "Sign Out", destroy_admin_session_path
                 - else
                   %li
+                  %li
+                    = link_to "All Posts", posts_path
                     = link_to "Sign In", new_admin_session_path
 
             %aside.right-off-canvas-menu
