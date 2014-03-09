@@ -11,21 +11,18 @@
 #
 
 class Post < ActiveRecord::Base
-  attr_accessible :title, :detail, :image, :name, :tags_attributes
+  attr_accessible :title, :detail, :image, :tags_attributes
 
   # post validations
   validates :title, presence: true, length: { minimum: 5 }
   validates :detail, presence: true, length: { minimum: 20 }
-
-  # nested tag validations
-  validates :name, presence: true
 
   # model associations
   has_many :comments, dependent: :destroy
   has_many :tags
 
   # macro to edit tags via posts with nested attributes
-  accepts_nested_attributes_for :tags, allow_destroy: :true,
+  accepts_nested_attributes_for :tags, allow_destroy: true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 end
