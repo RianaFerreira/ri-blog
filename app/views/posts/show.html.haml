@@ -10,6 +10,9 @@
       %strong Title
       = @post.title
     %p
+      %b Post Tags
+      = @post.tags.map { |t| t.name }.join(", ")
+    %p
       %strong Detail
       = @post.detail
 
