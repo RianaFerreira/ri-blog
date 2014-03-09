@@ -12,7 +12,8 @@ Post.delete_all
 
 puts "~ Creating and populating 20 posts and comments"
 20.times do |i|
-  @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph )
+  Tag.create!(name: Faker::Lorem.word)
+  @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph,  )
   @post.comments.create!(commenter: Faker::Name.name, body: Faker::Lorem.paragraph )
 end
 
