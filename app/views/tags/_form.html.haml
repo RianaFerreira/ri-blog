@@ -1,0 +1,9 @@
+%h4 Post Tags
+= form.fields_for :tags do |t|
+  %p
+    = t.label :name, 'Tag'
+    = t.text_field :name
+
+  - unless t.object.nil? || t.object.new_record?
+    = t.check_box :_destroy
+    = t.label :_destroy, 'Remove'
