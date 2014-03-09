@@ -7,13 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'faker'
-puts "~ Deleting all posts and associated comments"
+puts "~ Deleting all posts, associated comments and tags"
 Post.delete_all
+Comment.delete_all
+Tag.delete_all
 
-puts "~ Creating and populating 20 posts and comments"
+puts "~ Creating and populating 20 posts, comments and tags"
 20.times do |i|
-  Tag.create!(name: Faker::Lorem.word)
-  @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph,  )
+  @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph)
+  @post.tags.create!(name: Faker::Lorem.characters(char_count = 10))
   @post.comments.create!(commenter: Faker::Name.name, body: Faker::Lorem.paragraph )
 end
 
