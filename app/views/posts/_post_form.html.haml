@@ -1,5 +1,9 @@
 %section
+
+  - @post.tags.build
+
   = form_for @post do |f|
+
     - if @post.errors.any?
       #error_explanation
         %h2
@@ -8,6 +12,7 @@
         %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
+
     %p
       = f.label :title
       = f.text_field :title
@@ -17,6 +22,10 @@
     %p
       = f.label :image
       = f.file_field :image
+
+    %p
+      = render :partial => 'tags/form', :locals => { :form => f }
+
     %p
       = f.submit 'Save', class: 'button'
       = link_to 'View All', posts_path, class: 'button'
