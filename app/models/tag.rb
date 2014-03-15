@@ -10,6 +10,9 @@
 #
 
 class Tag < ActiveRecord::Base
+  # enable elastic search on post tags
+  searchkick
+
   attr_accessible :name
 
   validates :name, presence: true, length: { minimum: 3 }

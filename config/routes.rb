@@ -1,6 +1,7 @@
 Blog::Application.routes.draw do
   devise_for :admins
 
+  get 'posts/search'
   resources :posts do
     resources :comments
   end

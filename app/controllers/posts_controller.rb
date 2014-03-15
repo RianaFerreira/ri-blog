@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def search
+
+  end
+
   def index
     # list all posts for the blog
     @posts = Post.all

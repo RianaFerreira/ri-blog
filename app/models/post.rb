@@ -11,6 +11,9 @@
 #
 
 class Post < ActiveRecord::Base
+  # enable elastic search on posts
+  searchkick
+
   attr_accessible :title, :detail, :image, :tags_attributes
 
   # post validations

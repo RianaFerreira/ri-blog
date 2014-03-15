@@ -13,6 +13,8 @@ gem 'devise'
 # skip heroku deployment plugin injection
 gem 'rails_12factor'
 # brew install git-flow
+# brew install elasticsearch
+gem 'searchkick'
 
 gem 'haml-rails'
 gem 'coffee-rails', '~> 3.2.1'
