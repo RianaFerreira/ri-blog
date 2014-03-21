@@ -3,10 +3,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def search
-
-  end
-
   def index
     # list all posts for the blog
     @posts = Post.all
@@ -19,12 +15,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    # guard conditions
+
     # render text: params[:post].inspect
     @post = Post.new(params[:post])
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -33,18 +31,26 @@ class PostsController < ApplicationController
   end
 
   def update
+    # guard conditions
+
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       redirect_to @post
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
+    # guard conditions
+
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    @results = Post.search(params[:query])
   end
 
   private
