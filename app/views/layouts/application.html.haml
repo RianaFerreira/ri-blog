@@ -51,18 +51,17 @@
               %ul.off-canvas-list
                 %li
                   %label Post Archive
-                %li
-                  = form_tag({controller: 'posts', action: 'search'}, method: 'get') do
-                    = label_tag(:query, 'Looking for')
-                    = text_field_tag(:query)
+                  = form_tag posts_search_path do
+                    = label_tag :query, 'Search Blog'
+                    = text_field_tag :query
                     = submit_tag 'Search', class: 'button'
 
             %section.main-section
-              = yield
-              %p{class: "notice"}
+              %div.notice.alert-box.info.radius{:data => "data-alert"}
                 = notice
-              %p{class: "alert"}
-                = alert
+                %a.close{:href => "#"} &times;
+              %div.alert= alert
+              = yield
 
             %a.exit-off-canvas
 
