@@ -18,7 +18,9 @@ config.action_mailer.default_url_options = { :host => 'ri-blog.heroku.com.au' }
 
 ## References
 Git-Flow http://nvie.com/posts/a-successful-git-branching-model/
-Pretty Page Title http://railscasts.com/episodes/30-pretty-page-title
+Pretty page title http://railscasts.com/episodes/30-pretty-page-title
+Basic search feature http://railscasts.com/episodes/37-simple-search-form
+
 
 ## Gems
 gitflow https://github.com/nvie/gitflow
@@ -44,3 +46,4 @@ factory_girl_rails https://github.com/thoughtbot/factory_girl_rails
 cucumber-rails https://github.com/cucumber/cucumber-rails
 capybara https://github.com/jnicklas/capybara
 faker https://github.com/stympy/faker
+kicksearch

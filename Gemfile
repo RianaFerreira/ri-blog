@@ -59,7 +59,7 @@ group :development, :test do
   gem 'capybara'
   # faker installed to seed database with testing data
   gem 'faker'
-  # gem 'better_errors' # triggers rspec segmentation fault error
+  gem 'better_errors' # triggers rspec segmentation fault error
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
