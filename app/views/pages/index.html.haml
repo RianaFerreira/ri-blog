@@ -10,7 +10,12 @@
     - @posts.each do |post|
       %p
         %h4= post.title
-        %span= post.created_at
-      %p= post.detail
+        %span added
+        = post.created_at.to_s(:long)
+
+      %div.post_detail
+        %p= post.detail
+        %blockquote= post.thought
+
       -if post.image.present?
-        %img{src: post.image, alt: "blog post image"}
+        %img{src: post.image, alt: 'blog post image'}

@@ -5,7 +5,7 @@
     %h1 Latest Ri-Blog Post
     %p
       %strong Date
-      = @post.created_at
+      = @post.created_at.to_s(:long)
     %p
       %strong Title
       = @post.title
