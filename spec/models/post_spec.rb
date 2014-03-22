@@ -56,8 +56,8 @@ describe Post do
   end
 
   # test model behaviour with factory objects
-  it 'returns a hash of post results that match' do
-    title = Factory(:post, title: "Testing post model")
+  xit 'returns a hash of post results that match' do
+    title = Factory(:post, title: "Testing")
     detail = Factory(:post, detail: "Testing model specification detail here")
     thought = Factory(:post, thought: "Testing testing")
 
