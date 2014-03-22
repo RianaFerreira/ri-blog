@@ -15,12 +15,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    # guard conditions
-
     # render text: params[:post].inspect
+    # guard conditions
     @post = Post.new(params[:post])
 
     if @post.save
+      flash[:notice] = "Post succesfully created."
       redirect_to @post
     else
       render :new
@@ -33,9 +33,10 @@ class PostsController < ApplicationController
 
   def update
     # guard conditions
-
     @post = Post.find(params[:id])
+
     if @post.update_attributes(params[:post])
+      flash[:notice] = "Post successfully updated."
       redirect_to @post
     else
       render :edit
@@ -55,6 +56,12 @@ class PostsController < ApplicationController
 
   def search
     @results = Post.search(params[:query])
+
+    if @results.present?
+      flash[:notice] = "Search results found."
+    else
+      flash[:notice] = "No posts found that match your search."
+    end
   end
 
   private

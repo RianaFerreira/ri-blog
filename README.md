@@ -20,6 +20,7 @@ http://ri-blog.herokuapp.com/
 * Git-Flow http://nvie.com/posts/a-successful-git-branching-model/
 * Pretty page title http://railscasts.com/episodes/30-pretty-page-title
 * Basic search feature http://railscasts.com/episodes/37-simple-search-form
+* Elasticsearch for advanced searching http://www.elasticsearch.org/
 
 
 ## Gems
