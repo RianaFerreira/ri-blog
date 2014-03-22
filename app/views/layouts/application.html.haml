@@ -51,7 +51,7 @@
               %ul.off-canvas-list
                 %li
                   %label Post Archive
-                  = form_tag posts_search_path do
+                  = form_tag posts_search_path, method: 'get' do
                     = label_tag :query, 'Search Blog'
                     = text_field_tag :query
                     = submit_tag 'Search', class: 'button'
