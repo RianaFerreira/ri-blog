@@ -44,9 +44,12 @@ class PostsController < ApplicationController
 
   def destroy
     # guard conditions
-
     @post = Post.find(params[:id])
-    @post.destroy
+
+    @post.destroy if @post.present?
+
+    flash[:notice] = "Post and linked comments have been removed."
+
     redirect_to posts_path
   end
 
