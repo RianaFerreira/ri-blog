@@ -13,6 +13,8 @@ gem 'devise'
 # skip heroku deployment plugin injection
 gem 'rails_12factor'
 # brew install git-flow
+# brew install elasticsearch
+gem 'searchkick'
 
 gem 'haml-rails'
 gem 'coffee-rails', '~> 3.2.1'
@@ -57,7 +59,7 @@ group :development, :test do
   gem 'capybara'
   # faker installed to seed database with testing data
   gem 'faker'
-  # gem 'better_errors' # triggers rspec segmentation fault error
+  # gem 'better_errors' # disable because it triggers rspec segmentation fault error
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'pry-stack_explorer'

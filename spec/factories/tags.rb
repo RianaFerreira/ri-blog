@@ -13,7 +13,7 @@
 
 FactoryGirl.define do
   factory :tag do
-    name "MyString"
+    name {Faker::Lorem.characters(char_count = 10)}
     post nil
   end
 end

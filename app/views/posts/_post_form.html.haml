@@ -1,5 +1,4 @@
 %section
-
   - @post.tags.build
 
   = form_for @post do |f|
@@ -19,6 +18,9 @@
     %p
       = f.label :detail
       = f.text_area :detail
+    %p
+      = f.label :thought
+      = f.text_area :thought
     %p
       = f.label :image
       = f.file_field :image
