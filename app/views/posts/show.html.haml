@@ -12,9 +12,13 @@
     %p
       %b Post Tags
       = @post.tags.map { |t| t.name }.join(", ")
-    %p
-      %strong Detail
-      = @post.detail
+    %div.post_detail
+      %p
+        %strong Detail
+        = @post.detail
+      %blockquote
+        %strong Thought
+        = @post.thought
 
     %p
       %strong Images
@@ -31,7 +35,7 @@
       %table
         %tbody
           %tr
-            %td{:width => 200}= comment.created_at
+            %td{:width => 200}= comment.created_at.to_s(:short)
             %td{:width => 100}= comment.commenter
             %td{:width => 600}= comment.body
             - if admin_signed_in?

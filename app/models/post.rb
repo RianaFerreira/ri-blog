@@ -20,6 +20,7 @@ class Post < ActiveRecord::Base
   # post validations
   validates :title, presence: true, length: { minimum: 5 }
   validates :detail, presence: true, length: { minimum: 20 }
+  validates :thought, presence: true, length: { minimum: 10 }
 
   # model associations
   has_many :comments, dependent: :destroy

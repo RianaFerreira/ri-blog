@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     # list all posts for the blog
-    @posts = Post.all
+    @posts = Post.order(:created_at)
   end
 
   def new
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
     # render text: params[:post].inspect
     @post = Post.new(params[:post])
+
     if @post.save
       redirect_to @post
     else
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :detail, :image)
+      params.require(:post).permit(:title, :detail, :thought, :image)
     end
 
 end
