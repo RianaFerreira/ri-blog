@@ -3,13 +3,12 @@
 .row
   .small-11.small-centered.columns
     %h1 All Ri-Blog Posts
-    %ul
-      - @posts.each do |post|
-        %li
-          %span
-            = post.created_at.to_s(:long)
-          %span
-            = link_to post.title, post_path(post)
-          %span
-            = post.detail.slice(0, 30)+"..."
+    - @posts.each do |post|
+      %p
+        %span
+          = post.created_at.to_s(:long)
+        %span
+          = link_to post.title, post_path(post)
+        %span
+          = post.detail.slice(0, 30)+"..."
     %p That's all of the posts I have so far.
