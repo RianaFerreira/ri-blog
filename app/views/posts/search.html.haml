@@ -4,9 +4,18 @@
   .small-11.small-centered.columns
     %h2 Search Results
     - @results.each do |r|
-      %p
-        %h4= r.title
-        %span= r.created_at.to_s(:long)
-      %p= r.detail
-      -if r.image.present?
-        %img{src: post.image, alt: 'blog post image'}
+      .row
+        .small-8.small.columns
+          %h4= link_to(r.title, post_path(r.id))
+          %p
+            %span= r.created_at.to_s(:long)
+          %p= r.detail
+          %p
+            -if r.image.present?
+              %img{src: post.image, alt: 'blog post image'}
+
+        .small-3.small.columns
+          %blockquote
+            - r.tags.map do |t|
+              %span.label= t.name
+            %p= r.thought
