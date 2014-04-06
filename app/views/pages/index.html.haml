@@ -8,14 +8,19 @@
 
     %h2 Recent posts
     - @posts.each do |post|
-      %p
-        %h4= post.title
-        %span added
-        = post.created_at.to_s(:long)
+      .row
+        .small-8.small.columns
+          %h4= post.title
+          %p= post.created_at.to_s(:long)
 
-      %div.post_detail
-        %p= post.detail
-        %blockquote= post.thought
+          %p= post.detail
 
-      -if post.image.present?
-        %img{src: post.image, alt: 'blog post image'}
+          -if post.image.present?
+            %img{src: post.image, alt: 'blog post image'}
+
+        .small-3.small.columns
+          %blockquote
+            %p
+            - post.tags.each do |tag|
+              %span.label=tag.name
+            %p= post.thought

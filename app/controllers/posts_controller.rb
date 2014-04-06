@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    Post.reindex
     # list all posts for the blog
     @posts = Post.order(:created_at)
   end
