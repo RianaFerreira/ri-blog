@@ -7,12 +7,15 @@ class PostsController < ApplicationController
     Post.reindex
     # list all posts for the blog
     @posts = Post.order(:created_at)
+
+    flash[:notice] = "#{view_context.pluralize(@posts.count, 'post')} so far."
   end
 
   def new
     # display form to capture details of new post
     # on submit the form will POST to create action
     @post = Post.new
+    flash[:notice] = "Provide information for the blog post."
   end
 
   def create
@@ -47,11 +50,8 @@ class PostsController < ApplicationController
   def destroy
     # guard conditions
     @post = Post.find(params[:id])
-
     @post.destroy if @post.present?
-
     flash[:notice] = "Post and linked comments have been removed."
-
     redirect_to posts_path
   end
 
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
     @results = Post.search(params[:query])
 
     if @results.present?
-      flash[:notice] = "Search results found."
+      flash[:notice] = "Search returned #{view_context.pluralize(@results.count, 'result')}."
     else
       flash[:notice] = "No posts found that match your search."
     end
