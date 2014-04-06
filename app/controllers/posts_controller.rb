@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    Post.reindex
     # list all posts for the blog
     @posts = Post.order(:created_at)
   end
@@ -15,12 +16,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    # guard conditions
-
     # render text: params[:post].inspect
+    # guard conditions
     @post = Post.new(params[:post])
 
     if @post.save
+      flash[:notice] = "Post succesfully created."
       redirect_to @post
     else
       render :new
@@ -33,9 +34,10 @@ class PostsController < ApplicationController
 
   def update
     # guard conditions
-
     @post = Post.find(params[:id])
+
     if @post.update_attributes(params[:post])
+      flash[:notice] = "Post successfully updated."
       redirect_to @post
     else
       render :edit
@@ -44,14 +46,23 @@ class PostsController < ApplicationController
 
   def destroy
     # guard conditions
-
     @post = Post.find(params[:id])
-    @post.destroy
+
+    @post.destroy if @post.present?
+
+    flash[:notice] = "Post and linked comments have been removed."
+
     redirect_to posts_path
   end
 
   def search
     @results = Post.search(params[:query])
+
+    if @results.present?
+      flash[:notice] = "Search results found."
+    else
+      flash[:notice] = "No posts found that match your search."
+    end
   end
 
   private
