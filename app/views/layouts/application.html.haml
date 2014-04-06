@@ -57,10 +57,14 @@
                     = submit_tag 'Search', class: 'button'
 
             %section.main-section
-              %div.notice.alert-box.info.radius{:data => "data-alert"}
-                = notice
-                %a.close{:href => "#"} &times;
-              %div.alert= alert
+              -if notice.present?
+                %div.notice.alert-box.info.radius{:data => "data-alert"}
+                  = notice
+                  %a.close{:href => "#"} &times;
+
+              - if alert.present?
+                %div.alert-box.secondary= alert
+
               = yield
 
             %a.exit-off-canvas
