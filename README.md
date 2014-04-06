@@ -44,4 +44,4 @@ http://ri-blog.herokuapp.com/
 * cucumber-rails https://github.com/cucumber/cucumber-rails
 * capybara https://github.com/jnicklas/capybara
 * faker https://github.com/stympy/faker
-* kicksearch
+* searchkick https://github.com/ankane/searchkick
