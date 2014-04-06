@@ -10,7 +10,7 @@
     - @posts.each do |post|
       .row
         .small-8.small.columns
-          %h4= post.title
+          %h4= link_to(post.title, post_path(post.id))
           %p= post.created_at.to_s(:long)
 
           %p= post.detail
