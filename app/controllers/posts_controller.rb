@@ -19,9 +19,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    # render text: params[:post].inspect
     # guard conditions
     @post = Post.new(params[:post])
+
+    if params[:image].present?
+       preloaded = Cloudinary::PreloadedFile.new(params[:image])
+       # Verify signature by calling preloaded.valid?
+       @post.image = preloaded.identifier
+    end
 
     if @post.save
       flash[:notice] = "Post succesfully created."
@@ -39,10 +44,17 @@ class PostsController < ApplicationController
     # guard conditions
     @post = Post.find(params[:id])
 
+    if @post.image != params[:image]
+       preloaded = Cloudinary::PreloadedFile.new(params[:image])
+       # Verify signature by calling preloaded.valid?
+       @post.image = preloaded.identifier
+    end
+
     if @post.update_attributes(params[:post])
       flash[:notice] = "Post successfully updated."
       redirect_to @post
     else
+      flash[:notice] = "Post needs to extra info."
       render :edit
     end
   end

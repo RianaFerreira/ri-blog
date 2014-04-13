@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ri-blog
+  api_key: '195152223143466'
+  api_secret: xipcTk4_xrCY8b_DOdhonknhilM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ri-blog
+  api_key: '195152223143466'
+  api_secret: xipcTk4_xrCY8b_DOdhonknhilM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ri-blog
+  api_key: '195152223143466'
+  api_secret: xipcTk4_xrCY8b_DOdhonknhilM
+  enhance_image_tag: true
+  static_image_support: false

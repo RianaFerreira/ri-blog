@@ -10,8 +10,8 @@
         %p
           = @post.detail
         %p
-        - if @post.image.present?
-          = @post.image
+          - if @post.image.present?
+            = cl_image_tag(@post.image)
         %p
           - if admin_signed_in?
             = link_to 'Edit', edit_post_path(@post), class: 'button'

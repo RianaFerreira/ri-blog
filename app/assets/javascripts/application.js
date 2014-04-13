@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require cloudinary
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

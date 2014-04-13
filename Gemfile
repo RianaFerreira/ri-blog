@@ -15,6 +15,7 @@ gem 'rails_12factor'
 # brew install git-flow
 # brew install elasticsearch
 gem 'searchkick'
+gem 'cloudinary'
 
 gem 'haml-rails'
 gem 'coffee-rails', '~> 3.2.1'
