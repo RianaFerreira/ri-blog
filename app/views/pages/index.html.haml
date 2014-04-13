@@ -16,7 +16,7 @@
           %p= post.detail
 
           -if post.image.present?
-            %img{src: post.image, alt: 'blog post image'}
+            = cl_image_tag(post.image)
 
         .small-3.small.columns
           %blockquote

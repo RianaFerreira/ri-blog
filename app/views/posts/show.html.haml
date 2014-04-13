@@ -7,11 +7,13 @@
       .small-8.small.columns
         %p
           = @post.created_at.to_s(:long)
+
+          - @post.detail.each_line("\r\n") do |line|
+            %p= line
+
         %p
-          = @post.detail
-        %p
-          - if @post.image.present?
-            = cl_image_tag(@post.image)
+          = cl_image_tag(@post.image) if @post.image.present?
+
         %p
           - if admin_signed_in?
             = link_to 'Edit', edit_post_path(@post), class: 'button'

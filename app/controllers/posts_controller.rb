@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     # guard conditions
     @post = Post.find(params[:id])
 
-    if @post.image != params[:image]
+    if params[:image].present?
        preloaded = Cloudinary::PreloadedFile.new(params[:image])
        # Verify signature by calling preloaded.valid?
        @post.image = preloaded.identifier

@@ -23,9 +23,8 @@
       = f.text_area :thought
     %p
       = f.label :image
-      - if @post.image.present?
-        = cl_image_tag(@post.image)
-      = cl_image_upload_tag(:image)
+      = cl_image_tag(@post.image) if @post.image.present?
+      = cl_image_upload_tag :image
 
     %p
       = render :partial => 'tags/form', :locals => { :form => f }

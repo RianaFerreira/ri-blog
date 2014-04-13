@@ -22,9 +22,11 @@
 
               %section.middle.tab-bar-section
                 - if admin_signed_in?
-                  %h1.title Ri-Blog hello RiRi
+                  %h1.title
+                    = link_to 'Ri-Blog hello RiRi', root_path
                 -else
-                  %h1.title Ri-Blog
+                  %h1.title
+                    = link_to 'Ri-Blog', root_path
 
               %section.right-small
                 %a.right-off-canvas-toggle.menu-icon
@@ -33,8 +35,6 @@
             %aside.left-off-canvas-menu
               %label Blog Admin
               %ul.off-canvas-list
-                %li
-                  = link_to 'Home', root_path
                 %li
                   = link_to 'All Posts', posts_path
 
