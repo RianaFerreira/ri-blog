@@ -14,6 +14,7 @@
 class Post < ActiveRecord::Base
   # enable elastic search on posts
   searchkick
+  paginates_per 20
 
   attr_accessible :title, :detail, :thought, :image, :tags_attributes
 

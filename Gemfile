@@ -16,6 +16,7 @@ gem 'rails_12factor'
 # brew install elasticsearch
 gem 'searchkick'
 gem 'cloudinary'
+gem 'kaminari'
 
 gem 'haml-rails'
 gem 'coffee-rails', '~> 3.2.1'
