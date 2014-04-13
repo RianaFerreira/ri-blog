@@ -13,7 +13,8 @@
           %h4= link_to(post.title, post_path(post.id))
           %p= post.created_at.to_s(:long)
 
-          %p= post.detail
+          - post.detail.each_line("\r\n") do |line|
+            %p= line
 
           -if post.image.present?
             = cl_image_tag(post.image)

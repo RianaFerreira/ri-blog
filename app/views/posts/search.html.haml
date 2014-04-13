@@ -9,7 +9,8 @@
           %h4= link_to(r.title, post_path(r.id))
           %p
             %span= r.created_at.to_s(:long)
-          %p= r.detail
+            - r.detail.each_line("\r\n") do |line|
+              %p= line
           %p
             = cl_image_tag(r.image) if r.image.present?
 
