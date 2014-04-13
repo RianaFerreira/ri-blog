@@ -1,5 +1,4 @@
 # MY BLOG
-
 If you have ever wondered what it would be like to wipe the slate clean and start a journey into a new career path? I'll be blogging about where I came from, making the most of my life, the work I do and how it's all working out.
 
 From Business Analyst to Junior Developer, I'm loving every minute!
@@ -21,7 +20,7 @@ http://ri-blog.herokuapp.com/
 * Pretty page title http://railscasts.com/episodes/30-pretty-page-title
 * Basic search feature http://railscasts.com/episodes/37-simple-search-form
 * Elasticsearch for advanced searching http://www.elasticsearch.org/
-
+* Cloudinary for image management http://cloudinary.com/blog/direct_image_uploads_from_the_browser_to_the_cloud_with_jquery
 
 ## Gems
 * gitflow https://github.com/nvie/gitflow
@@ -45,3 +44,4 @@ http://ri-blog.herokuapp.com/
 * capybara https://github.com/jnicklas/capybara
 * faker https://github.com/stympy/faker
 * searchkick https://github.com/ankane/searchkick
+* cloudinary https://github.com/cloudinary/cloudinary_gem
