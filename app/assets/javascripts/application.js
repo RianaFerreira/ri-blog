@@ -14,6 +14,28 @@
 //= require jquery_ujs
 //= require foundation
 //= require cloudinary
+//= require pen.js
+//= require markdown.js
 //= require_tree .
-
 $(function(){ $(document).foundation(); });
+
+document.ready = function(){
+  var editor = new Pen('#editor');
+
+  $('#editor').html($('#post_detail').val());
+
+  document.getElementById("editor").onblur = function(evt){ storePostContent(this, document.getElementById("post_detail"))};
+
+  defaults = {
+    class: 'pen',
+    debug: false,
+    textarea: '<textarea name="post_detail"></textarea>',
+    list: ['blockquote', 'h2', 'h3', 'p', 'insertorderedlist', 'insertunorderedlist',
+      'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink'],
+    stay: false
+  }
+
+  function storePostContent(inputField, dbField){
+    dbField.value = inputField.innerHTML;
+  }
+}

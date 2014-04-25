@@ -22,6 +22,7 @@ http://ri-blog.herokuapp.com/
 * Elasticsearch for advanced searching http://www.elasticsearch.org/
 * Cloudinary for image management http://cloudinary.com/blog/direct_image_uploads_from_the_browser_to_the_cloud_with_jquery
 * Kaminari for pagination https://github.com/amatsuda/kaminari/wiki/Kaminari-recipes
+* Pen for text editor http://sofish.github.io/pen/
 
 ## Gems
 * gitflow https://github.com/nvie/gitflow
@@ -47,3 +48,4 @@ http://ri-blog.herokuapp.com/
 * searchkick https://github.com/ankane/searchkick
 * cloudinary https://github.com/cloudinary/cloudinary_gem
 * kaminari https://github.com/amatsuda/kaminari
+* pen https://github.com/sofish/pen

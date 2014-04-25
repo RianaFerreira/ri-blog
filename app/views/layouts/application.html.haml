@@ -8,6 +8,8 @@
       Ri-Blog #{yield(:title) || "My Journey Into Programming"}
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "pen.js"
+    = javascript_include_tag "markdown.js"
     = csrf_meta_tags
 
   %body

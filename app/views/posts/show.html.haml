@@ -8,8 +8,8 @@
         %p
           = @post.created_at.to_s(:long)
 
-          - @post.detail.each_line("\r\n") do |line|
-            %p= line
+        %p
+          = raw @post.detail
 
         %p
           = cl_image_tag(@post.image) if @post.image.present?
