@@ -7,8 +7,8 @@ class PostsController < ApplicationController
     Post.reindex
     # list all posts for the blog
     @posts = Post.order(:created_at).page params[:page]
-
-    flash[:notice] = "#{view_context.pluralize(@posts.count, 'post')} so far."
+    @total_posts = Post.all
+    flash[:notice] = "#{view_context.pluralize(@total_posts.count, 'post')} so far."
   end
 
   def new

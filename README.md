@@ -14,6 +14,8 @@ http://ri-blog.herokuapp.com/
 * CSS
 * Postgres
 * Heroku
+* Font Awesome
+* Google Fonts
 
 ## References
 * Git-Flow http://nvie.com/posts/a-successful-git-branching-model/

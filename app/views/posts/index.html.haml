@@ -10,7 +10,7 @@
         %span
           = link_to post.title, post_path(post)
         %span
-          = post.detail.slice(0, 50)+"..."
+          = raw post.detail.slice(0, 50)+"..."
 
     %div.pagination-centered
       %p.pagination

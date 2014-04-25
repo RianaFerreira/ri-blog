@@ -7,6 +7,9 @@
     %title
       Ri-Blog #{yield(:title) || "My Journey Into Programming"}
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Simonetta"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Karla"
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "pen.js"
     = javascript_include_tag "markdown.js"
@@ -35,9 +38,9 @@
                   %span
 
             %aside.left-off-canvas-menu
-              %label Blog Admin
               %ul.off-canvas-list
                 %li
+                  %label.fly-out Blog Admin
                   = link_to 'All Posts', posts_path
 
                 - if admin_signed_in?
@@ -52,7 +55,7 @@
             %aside.right-off-canvas-menu
               %ul.off-canvas-list
                 %li
-                  %label Post Archive
+                  %label.fly-out Post Archive
                   = form_tag posts_search_path, method: 'get' do
                     = label_tag :query, 'Search Blog'
                     = text_field_tag :query
