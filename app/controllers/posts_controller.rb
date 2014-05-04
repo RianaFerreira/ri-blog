@@ -68,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = Post.search(params[:query])
+    @results = Post.search params[:query], order: {created_at: :desc}
 
     if @results.present?
       flash[:notice] = "Search returned #{view_context.pluralize(@results.count, 'result')}."
