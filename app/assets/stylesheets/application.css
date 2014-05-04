@@ -16,7 +16,7 @@
 
 body, aside { font-family: 'Karla', sans-serif; }
 
-h1, label.fly-out {  font-family: 'Simonetta', cursive; }
+h1, h2, h4, label.fly-out {  font-family: 'Simonetta', cursive; }
 
 h1 > a {
   font-size: 1.5rem;
