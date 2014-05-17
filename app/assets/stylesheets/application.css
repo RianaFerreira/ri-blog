@@ -13,14 +13,29 @@
  *= require_self
  *= require_tree .
  */
-
-body, aside { font-family: 'Karla', sans-serif; }
-
+body {
+  background-image: url("blogbg.JPG");
+  background-size: cover;
+}
+.main-section { background-color: rgba(242, 242, 242, 0.6); }
+body, aside, #editor { font-family: 'Karla', sans-serif; }
 h1, label.fly-out {  font-family: 'Simonetta', cursive; }
-
 h1 > a {
   font-size: 1.5rem;
   font-weight: 900;
 }
 
-#editor { border: solid 1px #cccccc; }
+#editor {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: solid 1px #cccccc;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  background-color: white;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.75);
+  min-height: 50px;
+}
+
+#post_thought { max-height: 50px; }
+
+footer {background-color: rgba(255, 255, 255, 0.5);}
