@@ -24,7 +24,7 @@
     %p
       = f.label :image
       = cl_image_tag(@post.image) if @post.image.present?
-      = cl_image_upload_tag :image
+      = cl_image_upload_tag :image, :html => {:class => 'image_upload'}
 
     %p
       = render :partial => 'tags/form', :locals => { :form => f }

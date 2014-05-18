@@ -13,13 +13,15 @@
  *= require_self
  *= require_tree .
  */
-body {
+
+/*body {
   background-image: url("blogbg.JPG");
   background-size: cover;
-}
+}*/
 .main-section { background-color: rgba(242, 242, 242, 0.6); }
 body, aside, #editor { font-family: 'Karla', sans-serif; }
-h1, label.fly-out {  font-family: 'Simonetta', cursive; }
+h1, h2, h4, label.fly-out { font-family: 'Simonetta', cursive; }
+
 h1 > a {
   font-size: 1.5rem;
   font-weight: 900;
@@ -37,5 +39,4 @@ h1 > a {
 }
 
 #post_thought { max-height: 50px; }
-
 footer {background-color: rgba(255, 255, 255, 0.5);}
