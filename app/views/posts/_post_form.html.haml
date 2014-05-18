@@ -17,14 +17,15 @@
       = f.text_field :title
     %p
       = f.label :detail
-      #editor= f.hidden_field :detail
+      #editor
+      = f.hidden_field :detail
     %p
       = f.label :thought
       = f.text_area :thought
     %p
       = f.label :image
       = cl_image_tag(@post.image) if @post.image.present?
-      = cl_image_upload_tag :image, :html => {:class => 'image_upload'}
+      = cl_image_upload_tag :image
 
     %p
       = render :partial => 'tags/form', :locals => { :form => f }
