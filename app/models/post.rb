@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   searchkick
   paginates_per 20
 
-  attr_accessible :title, :detail, :thought, :image, :tags_attributes
+  attr_accessible :title, :detail, :thought, :tags_attributes, :images_attributes
 
   # post validations
   validates :title, presence: true, length: { minimum: 5 }
@@ -26,9 +26,12 @@ class Post < ActiveRecord::Base
   # model associations
   has_many :comments, dependent: :destroy
   has_many :tags
+  has_many :images
 
   # macro to edit tags via posts with nested attributes
   accepts_nested_attributes_for :tags, allow_destroy: true,
+                                :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  accepts_nested_attributes_for :images, allow_destroy: true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   # extend the search results to include tags

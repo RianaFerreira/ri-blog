@@ -5,16 +5,14 @@ class PostsController < ApplicationController
 
   def index
     Post.reindex
-    # list all posts for the blog
     @posts = Post.order("created_at DESC").page params[:page]
     @total_posts = Post.all
     flash[:notice] = "#{view_context.pluralize(@total_posts.count, 'post')} so far."
   end
 
   def new
-    # display form to capture details of new post
-    # on submit the form will POST to create action
     @post = Post.new
+    setup_post
     flash[:notice] = "Provide information for the blog post."
   end
 
@@ -78,6 +76,11 @@ class PostsController < ApplicationController
   end
 
   private
+    def setup_post
+      @post.tags.build
+      @post.images.build
+    end
+
     def post_params
       params.require(:post).permit(:title, :detail, :thought, :image)
     end
