@@ -11,8 +11,7 @@
             %span= r.created_at.to_s(:long)
             - r.detail.each_line("\r\n") do |line|
               %p= line
-          %p
-            = cl_image_tag(r.image) if r.image.present?
+          %p= cl_image_tag(r.images.first.url) if r.images.present?
 
 
         .small-3.small.columns

@@ -21,13 +21,13 @@
       = f.label :thought
       = f.text_area :thought
     %p
-      = f.label :image
-      = cl_image_tag(@post.image) if @post.image.present?
-      = cl_image_upload_tag :image
-
+      %h4 Post Tags
+      %fieldset
+        = f.fields_for :tags do |builder|
+          = render 'tag_fields', f: builder
+        = link_to_add_fields "Add Tag", f, :tags
     %p
-      = render :partial => 'tags/form', :locals => { :form => f }
-
+      = render :partial => 'images/form', :locals => { :form => f}
     %p
       = f.submit 'Save', class: 'button'
       = link_to 'View All', posts_path, class: 'button'

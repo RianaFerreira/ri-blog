@@ -12,7 +12,11 @@
           = raw @post.detail
 
         %p
-          = cl_image_tag(@post.image) if @post.image.present?
+          - if @post.images.present?
+            - @post.images.each do |image|
+              %fieldset
+                = cl_image_tag(image.url)
+                = image.caption
 
         %p
           - if admin_signed_in?

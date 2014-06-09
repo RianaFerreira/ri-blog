@@ -20,10 +20,10 @@ class PostsController < ApplicationController
     # guard conditions
     @post = Post.new(params[:post])
 
-    if params[:image].present?
-       preloaded = Cloudinary::PreloadedFile.new(params[:image])
-       # Verify signature by calling preloaded.valid?
-       @post.image = preloaded.identifier
+    if params[:post][:images_attributes]["0"][:url].present?
+       preloaded = Cloudinary::PreloadedFile.new(params[:post][:images_attributes]["0"][:url])
+       raise "Invalid upload signature" unless preloaded.valid?
+       @post.images.first.url = preloaded.identifier
     end
 
     if @post.save
@@ -42,10 +42,10 @@ class PostsController < ApplicationController
     # guard conditions
     @post = Post.find(params[:id])
 
-    if params[:image].present?
-       preloaded = Cloudinary::PreloadedFile.new(params[:image])
-       # Verify signature by calling preloaded.valid?
-       @post.image = preloaded.identifier
+    if params[:post][:images_attributes]["0"][:url].present?
+       preloaded = Cloudinary::PreloadedFile.new(params[:post][:images_attributes]["0"][:url])
+       raise "Invalid upload signature" unless preloaded.valid?
+       @post.images.first.url = preloaded.identifier
     end
 
     if @post.update_attributes(params[:post])

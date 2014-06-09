@@ -17,8 +17,8 @@
 
           %p= raw post.detail
 
-          -if post.image.present?
-            = cl_image_tag(post.image)
+          - if post.images.present?
+            = cl_image_tag(post.images.first.url)
 
         .small-3.small.columns
           %blockquote

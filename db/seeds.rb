@@ -11,9 +11,10 @@ puts "~ Deleting all posts, associated comments and tags"
 Post.delete_all
 Comment.delete_all
 Tag.delete_all
+Image.delete_all
 
 puts "~ Creating and populating 20 posts, comments and tags"
-20.times do |i|
+10.times do |i|
   @post = Post.create!( title: Faker::Lorem.sentence, detail: Faker::Lorem.paragraph, thought: Faker::Lorem.sentence)
   @post.tags.create!(name: Faker::Lorem.characters(char_count = 10))
   @post.comments.create!(commenter: Faker::Name.name, body: Faker::Lorem.paragraph )
