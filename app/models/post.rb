@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  title      :string(255)
 #  detail     :text
-#  image      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  thought    :string(255)
@@ -25,28 +24,17 @@ class Post < ActiveRecord::Base
 
   # model associations
   has_many :comments, dependent: :destroy
-  has_many :tags
-  # macro to edit tags via posts with nested attributes
-  accepts_nested_attributes_for :tags, allow_destroy: true,
+  has_many :tags, dependent: :destroy
+  accepts_nested_attributes_for :tags, :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-  has_many :images
-  accepts_nested_attributes_for :images, allow_destroy: true,
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   # extend the search results to include tags
   def search_data
     attributes.merge(tags: tags)
   end
-
-  # kicksearch methods replace this search logic
-  # # search query
-  # def self.search(query)
-  #   if query
-  #     find(:all, :conditions => ['detail LIKE ? OR title LIKE ?', "%#{query}%", "%#{query}%"])
-  #   else
-  #     find(:all)
-  #   end
-  # end
 
 end

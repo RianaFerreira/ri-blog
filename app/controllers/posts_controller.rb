@@ -17,13 +17,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    # guard conditions
     @post = Post.new(params[:post])
 
-    if params[:post][:images_attributes]["0"][:url].present?
-       preloaded = Cloudinary::PreloadedFile.new(params[:post][:images_attributes]["0"][:url])
-       raise "Invalid upload signature" unless preloaded.valid?
-       @post.images.first.url = preloaded.identifier
+    if @post.images.present?
+     preloaded = Cloudinary::PreloadedFile.new(@post.images.first.url)
+     raise "Invalid upload signature" unless preloaded.valid?
+     @post.images.first.url = preloaded.identifier
     end
 
     if @post.save
@@ -39,13 +38,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    # guard conditions
     @post = Post.find(params[:id])
 
-    if params[:post][:images_attributes]["0"][:url].present?
-       preloaded = Cloudinary::PreloadedFile.new(params[:post][:images_attributes]["0"][:url])
-       raise "Invalid upload signature" unless preloaded.valid?
-       @post.images.first.url = preloaded.identifier
+    if @post.images.present?
+      Cloudinary::Uploader.destroy(@post.images.first.url) unless @post.images.first.url.nil?
+      preloaded = Cloudinary::PreloadedFile.new(params[:post][:images_attributes]["0"][:url])
+      raise "Invalid upload signature" unless preloaded.valid?
+      params[:post][:images_attributes]["0"][:url] = preloaded.identifier
     end
 
     if @post.update_attributes(params[:post])
@@ -58,10 +57,16 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # guard conditions
     @post = Post.find(params[:id])
-    @post.destroy if @post.present?
-    flash[:notice] = "Post and linked comments have been removed."
+
+    @post.images.each do |img|
+      Cloudinary::Uploader.destroy(img.url) unless img.url.nil?
+    end
+
+    if @post.destroy
+      flash[:notice] = "Post and linked comments have been removed."
+    end
+
     redirect_to posts_path
   end
 
@@ -80,9 +85,4 @@ class PostsController < ApplicationController
       @post.tags.build
       @post.images.build
     end
-
-    def post_params
-      params.require(:post).permit(:title, :detail, :thought, :image)
-    end
-
 end

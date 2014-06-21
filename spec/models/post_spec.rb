@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  title      :string(255)
 #  detail     :text
-#  image      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  thought    :string(255)

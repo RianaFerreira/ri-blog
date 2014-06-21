@@ -2,5 +2,6 @@
   = f.label :name, 'Tag'
   = f.text_field :name
 
-  = f.hidden_field :_destroy
-  = link_to 'remove', '#', class: 'remove_fields'
+  - unless f.object.nil? || f.object.new_record?
+    = f.hidden_field :_destroy
+    = link_to 'Remove Tag', '#', class: 'remove_fields button'

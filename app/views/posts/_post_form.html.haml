@@ -25,9 +25,13 @@
       %fieldset
         = f.fields_for :tags do |builder|
           = render 'tag_fields', f: builder
-        = link_to_add_fields "Add Tag", f, :tags
+        = link_to_add_fields("Add Tag", f, :tags)
     %p
-      = render :partial => 'images/form', :locals => { :form => f}
+      %h4 Post Images
+      %fieldset
+        = f.fields_for :images do |builder|
+          = render :partial => 'image_fields', :locals => { :f => builder}
+        = link_to_add_fields("Add Image", f, :images)
     %p
       = f.submit 'Save', class: 'button'
       = link_to 'View All', posts_path, class: 'button'
